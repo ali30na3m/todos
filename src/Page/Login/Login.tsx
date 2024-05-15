@@ -8,7 +8,7 @@ const Login: React.FC = () => {
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 
-  const todoArr = useSelector((state: RootState) => state.todos.todos);
+  const todoArr = useSelector((state: RootState) => state.users);
   const navigate = useNavigate();
 
   const clickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -18,7 +18,7 @@ const Login: React.FC = () => {
       if (todo.username === username && todo.password === password) {
         navigate(`/TodoList/${todo.username}`);
       } else {
-        return false
+        alert('username or password incorrect')
       }
     })
     setUsername('')

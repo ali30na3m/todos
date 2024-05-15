@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodoAct } from '../../Redux/AddTodo/AddTodo';
+import { addTodo } from '../../Redux/Todos/todos';
 import { RootState } from '../../Redux/Store';
 import './TodoList.css';
 
@@ -12,13 +12,13 @@ import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 const TodoList: React.FC = () => {
 
     const [title, setTitle] = useState<string>('')
-    const todos = useSelector((state: RootState) => state.actionTodoSlice)
+    const todos = useSelector((state: RootState) => state.todos)
     const paramName = useParams();
     const dispatch = useDispatch()
 
     const addClickBtn = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
-        dispatch(addTodoAct(title))
+        dispatch(addTodo(title))
         setTitle('')
     }
 
@@ -36,7 +36,7 @@ const TodoList: React.FC = () => {
                     todos.map(todo => (
                         <div key={todo.id} className='todoList-userList'>
                             <h2>
-                                {todo.todo}
+                                {todo.title}
                             </h2>
                             <div className='todoList-div'>
                                 <button className='todoList-btn'>
