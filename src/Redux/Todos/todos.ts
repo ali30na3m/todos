@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-type TodoInfo = {
+export type TodoInfo = {
   id: string;
   title: string;
   isComplete: boolean;
@@ -11,7 +11,7 @@ const todos = createSlice({
   initialState: [] as TodoInfo[],
   reducers: {
     addTodo: {
-      reducer: (state : TodoInfo[], action: PayloadAction<TodoInfo>) => {
+      reducer: (state: TodoInfo[], action: PayloadAction<TodoInfo>) => {
         state.push(action.payload);
       },
       prepare: (title: string) => {
@@ -24,11 +24,19 @@ const todos = createSlice({
         };
       }
     },
-    removeTodo: (state, action: PayloadAction<string>) => {
+    removeTodo: (state: TodoInfo[], action: PayloadAction<string>) => {
       return state.filter(item => item.id !== action.payload);
+    },
+    doTodo: (state: TodoInfo[], action: PayloadAction<string>) => {
+      return state.map(todo =>
+        todo.id === action.payload ? { ...todo, isComplete: !todo.isComplete } : todo
+      );
+    },
+    getLocal: (state: TodoInfo[], action: PayloadAction<TodoInfo>) => {
+      state.push(action.payload)
     }
   }
 });
 
 export default todos.reducer;
-export const { addTodo, removeTodo } = todos.actions;
+export const { addTodo, removeTodo, doTodo, getLocal } = todos.actions;

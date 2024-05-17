@@ -61,4 +61,9 @@
     font-weight: 300;
     color: #fff;
     font-size: 16px;
+    cursor: pointer;
+}
+.todoList-isComplete{
+    opacity: 0.5;
+    text-decoration: solid line-through;
 }
