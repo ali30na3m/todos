@@ -1,11 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+<<<<<<< HEAD
 interface Todo {
+=======
+interface UserInfo {
+>>>>>>> working
   id: number;
   username: string;
   password: string;
 }
 
+<<<<<<< HEAD
 interface TodosState {
   todos: Todo[];
 }
@@ -13,6 +18,11 @@ interface TodosState {
 const initialState: TodosState = {
   todos: [{ id: 1, username: "ali30na", password: 'sina1234' }],
 };
+=======
+const initialState: UserInfo[] = [
+  { id: 1, username: "ali30na", password: 'sina1234' }
+]
+>>>>>>> working
 
 const todosSlice = createSlice({
   name: 'todos',
@@ -21,3 +31,7 @@ const todosSlice = createSlice({
 });
 
 export default todosSlice.reducer;
+<<<<<<< HEAD
+=======
+
+>>>>>>> working
