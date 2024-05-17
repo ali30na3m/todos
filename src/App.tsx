@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router"
 import Login from './Page/Login/Login';
 import TodoList from "./Page/TodoList/TodoList";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Register from "./Page/Register/Register";
 
 export default function App() {
 
@@ -18,6 +19,7 @@ export default function App() {
           </ProtectedRoute>
         }
       />
+      <Route path="/Register" element={<Register />} />
     </Routes>
   )
 }
