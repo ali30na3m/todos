@@ -1,29 +1,24 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../Redux/Store";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { login } from "../../Redux/authSlice/authSlice";
 import './Login.css'
 
 const Login: React.FC = () => {
-  const [username, setUsername] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-
-  const todoArr = useSelector((state: RootState) => state.users);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  const clickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.preventDefault();
-
-    todoArr.find(todo => {
-      if (todo.username === username && todo.password === password) {
-        navigate(`/TodoList/${todo.username}`);
-      } else {
-        alert('username or password incorrect')
-      }
-    })
-    setUsername('')
-    setPassword('')
-  }
+  const handleLogin = () => {
+    // شبیه‌سازی اعتبارسنجی کاربر
+    if (username === 'ali30na' && password === 'sina1234') {
+      dispatch(login({ id: 1, username, password }));
+      navigate(`/TodoList/${username}`);
+    } else {
+      alert('Invalid credentials');
+    }
+  };
 
   return (
     <div className="wrapper">
@@ -45,7 +40,7 @@ const Login: React.FC = () => {
             </div>
           </div>
           <div className="log_button">
-            <button onClick={clickHandler} className="log_in">Log In</button>
+            <button onClick={handleLogin} className="log_in">Log In</button>
           </div>
         </form>
       </div>
