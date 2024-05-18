@@ -1,7 +1,7 @@
 // src/store/authSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface UserInfo {
+export interface UserInfo {
   // id: string;
   username: string;
   password: string;
