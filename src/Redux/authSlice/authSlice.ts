@@ -12,7 +12,7 @@ interface AuthState {
   isAuthenticated: boolean;
 }
 
-const initialState: AuthState = {
+const initialState: AuthState  = {
   user: null,
   isAuthenticated: false,
 };

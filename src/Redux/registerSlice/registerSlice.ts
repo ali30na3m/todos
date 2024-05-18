@@ -14,7 +14,13 @@ interface UserInfo {
     todos : todosInfo[]
 }
 
+<<<<<<< HEAD
 const initialState : UserInfo[] = []
+=======
+
+
+const initialState: UserInfo[] = []
+>>>>>>> master
 
 const RegisterSlice = createSlice({
     name: 'register',
