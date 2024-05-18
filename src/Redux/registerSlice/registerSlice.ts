@@ -6,7 +6,7 @@ interface todosInfo {
     isComplete: boolean
 }
 
-interface UserInfo {
+export interface UserInfo {
     id: string
     username: string | null
     email: string | null

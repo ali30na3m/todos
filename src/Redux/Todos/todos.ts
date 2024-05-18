@@ -32,8 +32,8 @@ const todos = createSlice({
         todo.id === action.payload ? { ...todo, isComplete: !todo.isComplete } : todo
       );
     },
-    getLocal: (state: TodoInfo[], action: PayloadAction<TodoInfo>) => {
-      state.push(action.payload)
+    getLocal: (state: TodoInfo[], action: PayloadAction<TodoInfo[]>) => {
+      return [...state, ...action.payload];
     }
   }
 });
