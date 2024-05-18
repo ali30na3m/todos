@@ -7,9 +7,13 @@ interface UserInfo {
     password: string | null
 }
 
+
+
+const initialState: UserInfo[] = []
+
 const RegisterSlice = createSlice({
     name: 'register',
-    initialState: [],
+    initialState,
     reducers: {
         register: (state: UserInfo[], action: PayloadAction<UserInfo>) => {
             state.push(action.payload)
